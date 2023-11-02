@@ -83,3 +83,7 @@ h4 {
   /* Bạn có thể comment dòng dưới đây để biết tác dụng của nó */
   content: " (" attr(class) ")";
 }
+
+h1:hover{
+  background-color: #333;
+}
