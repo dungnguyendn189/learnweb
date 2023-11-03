@@ -1,12 +1,25 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-.header{
-    width: 100%;
-    height: 100vh;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyrE8UXvboTF0fY_gc850t5Q08i-3Bem6Ce-22byfRmA&s");
-    background-size: 100%;
-    background-repeat: no-repeat;
+.header {
+  width: 100%;
+  height: 300px;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyrE8UXvboTF0fY_gc850t5Q08i-3Bem6Ce-22byfRmA&s");
+
+  background-repeat: no-repeat;
+}
+
+.box {
+  width: 500px;
+  height: 500px;
+  background-image: url("https://fullstack.edu.vn/assets/images/f8_avatar.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border: 20px dashed purple;
+  padding: 20px;
+  box-sizing: border-box;
+  background-origin: border-box;
+  background-position: 30px;
 }
