@@ -1,26 +1,100 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .box {
-    height: 60px;
-    width: 60px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 60px;
+  width: 60px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  margin-right: 20px;
 }
 
 .box1 {
-    background-color: #333;
+  background-color: #333;
 }
 
 .box2 {
-    background-color: orange;
+  background-color: orange;
 }
 
 .box3 {
-    background-color: firebrick;
-    padding: 10px;
+  background-color: firebrick;
+  padding: 10px;
+  border-width: 3px;
+  border: solid;
+  border-color: #333;
+  margin-top: 30px;
+}
+
+.fb-group {
+  padding: 16px;
+}
+
+.heading {
+  font-size: 2.8rem;
+}
+
+.desc {
+  font-size: 1.6rem;
+}
+
+.button-link {
+  color: #333;
+  background-color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 8px 16px;
+
+  /* Bỏ gạch chân mặc định của thẻ a */
+  text-decoration: none;
+  border: 2px solid #333;
+}
+
+.button-link:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+.content {
+    padding: 16px;
+}
+
+.heading {
+    font-size: 2.8rem;
+}
+
+.posts-list{
+    margin-top: 32px;
+}
+
+.post-item {
+    padding: 12px 14px;
+    border: 2px solid #ccc;
+    margin-bottom: 16px;
+
+    /* Bo tròn góc 16px */
+    border-radius: 16px;
+}
+
+.post-item .title a {
+    color: #333;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+.post-item .desc {
+    font-size: 1.6rem;
+    color: #444;
+    margin-top: 10px;
+}
+
+.post-item .min-read {
+    font-size: 1.4rem;
+    color: #666;
+    margin-top: 12px;
 }

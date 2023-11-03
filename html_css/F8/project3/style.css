@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyrE8UXvboTF0fY_gc850t5Q08i-3Bem6Ce-22byfRmA&s");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
