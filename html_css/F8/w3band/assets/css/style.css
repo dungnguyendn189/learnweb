@@ -199,7 +199,14 @@ html {
 }
 
 .tour-section .content-section {
-  color: #fff !important;
+  color: #fff;
+}
+
+.ticket-list {
+  background-color: #fff;
+}
+.ticket-list li {
+  color: #000;
 }
 
 #footer {
