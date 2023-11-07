@@ -11,6 +11,14 @@ html {
 #main {
 }
 
+#nav #subnav {
+  list-style: none;
+}
+
+#nav {
+  display: inline-block;
+}
+
 #header {
   height: 46px;
   background-color: #000;
@@ -18,26 +26,81 @@ html {
 
 #nav li {
   display: inline-block;
+  position: relative;
+}
+
+#nav li:hover .subnav {
+  display: block;
+}
+
+#nav > li > a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 #nav li a {
-  color: #fff;
-  text-decoration: none;
   line-height: 46px;
   padding: 0 24px;
+  display: block;
 }
 
-#nav li:hover a {
+#nav > li:hover > a {
   background-color: #ccc;
   color: #000;
-  display: inline-block;
 }
 
 #nav .subnav {
   display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+  top: 100%;
+  min-width: 160px;
+}
+
+#nav .nav-arrow-down {
+  font-size: 12px;
+}
+
+#nav .subnav a {
+  color: #000;
+  text-decoration: none;
+  line-height: 22px;
+  padding: 8px 16px;
+  text-align: left;
+  width: 100%;
+}
+
+#nav .subnav li {
+  width: 100%;
+}
+
+#nav .subnav li:hover {
+  background-color: #ccc;
+  color: #000;
+}
+
+#header .search-btn {
+  float: right;
+}
+
+#header .search-btn:hover {
+  background-color: #f44336;
+  color: #fff;
+  cursor: pointer;
+}
+
+#header .search-icon {
+  color: #fff;
+  font-size: 20px;
+  line-height: 46px;
+  padding: 0 21px;
+  display: block;
 }
 
 #slider {
+  min-height: 500px;
 }
 
 #content {
