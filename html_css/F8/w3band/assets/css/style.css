@@ -16,6 +16,33 @@ html {
   color: #fff !important;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.row {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.col {
+  padding-left: 8px;
+  padding-right: 8px;
+  float: left;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.col-third {
+  width: 33.333%;
+}
+
+.col-half {
+  width: 50%;
+}
+
 #main {
 }
 
@@ -178,12 +205,6 @@ html {
   line-height: 1.4;
 }
 
-#content .member-item {
-  float: left;
-  width: calc(100% / 3);
-  text-align: center;
-}
-
 #content .member-name {
   font-size: 15px;
   padding: 15px;
@@ -235,13 +256,10 @@ html {
 }
 
 .place-list {
-  margin: 32px -8px 48px -8px;
+  margin-top: 32px;
+  margin-bottom: 48px;
 }
-.place-item {
-  float: left;
-  width: calc(100% / 3);
-  padding: 0 8px;
-}
+
 .place-img {
   width: 100%;
   display: block;
@@ -308,6 +326,7 @@ html {
   max-width: calc(100% - 32px);
   min-height: 200px;
   position: relative;
+  animation: modalFadeIn ease 0.7s;
 }
 
 .modal-close {
@@ -381,4 +400,15 @@ html {
 
 .modal-footer a {
   color: rgb(33, 150, 243);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-140px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
