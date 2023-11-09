@@ -110,7 +110,8 @@
                                     <p class="place-time">Fri 27 Nov 2016</p>
                                     <p class="place-des">Praesent tincidunt sed
                                         tellus ut rutrum sed vitae justo.</p>
-                                    <a href="#" class="place-buy-btn">Buy Ticket</a>
+                                    <button class="place-buy-btn js-buy-ticket">Buy
+                                        Ticket</button>
                                 </div>
                             </div>
                             <div class="place-item">
@@ -121,7 +122,8 @@
                                     <p class="place-time">Sat 28 Nov 2016</p>
                                     <p class="place-des">Praesent tincidunt sed
                                         tellus ut rutrum sed vitae justo.</p>
-                                    <a href="#" class="place-buy-btn">Buy Ticket</a>
+                                    <button class="place-buy-btn js-buy-ticket">Buy
+                                        Ticket</button>
                                 </div>
                             </div>
                             <div class="place-item">
@@ -132,7 +134,8 @@
                                     <p class="place-time">Sun 29 Nov 2016</p>
                                     <p class="place-des">Praesent tincidunt sed
                                         tellus ut rutrum sed vitae justo.</p>
-                                    <a href="#" class="place-buy-btn">Buy Ticket</a>
+                                    <button class="place-buy-btn js-buy-ticket">Buy
+                                        Ticket</button>
                                 </div>
                             </div>
                             <div class="clear"></div>
@@ -151,7 +154,7 @@
 
             </div>
         </div>
-        <div class="modal">
+        <div class="modal js-modal">
             <div class="modal-container">
                 <div class="modal-close">
                     <i class="ti-close"></i>
@@ -161,18 +164,18 @@
                     Tickets
                 </header>
                 <div class="modal-body">
-                    <label for class="modal-label">
+                    <label for="ticket-quanlity" class="modal-label">
                         <i class="ti-shopping-cart"></i>
                         Tickets, $15 per person
                     </label>
                     <input type="text" class="modal-input"
-                        placeholder="How many ?">
+                        id="ticket-quanlity" placeholder="How many ?">
 
-                    <label for class="modal-label">
+                    <label for="ticket-email" class="modal-label">
                         <i class="ti-user"></i>
                         Send To
                     </label>
-                    <input type="email" class="modal-input"
+                    <input id="ticket-email" type="email" class="modal-input"
                         placeholder="Enter email">
                     <button id="buy-ticket">Pay <i class="ti-check-box"></i>
                     </button>
@@ -182,5 +185,18 @@
                 </footer>
             </div>
         </div>
+
+        <script>
+            const buyBtns = document.querySelectorAll(".js-buy-ticket");
+            const modal = document.querySelector(".js-modal");
+
+            function ShowBuyTicket() {
+                modal.classList.add('open');
+            }
+
+            for(const buyBtn of buyBtns){
+                buyBtn.addEventListener("click", ShowBuyTicket);
+            }
+        </script>
     </body>
 </html>

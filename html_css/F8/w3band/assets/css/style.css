@@ -287,20 +287,25 @@ html {
 
 /* Modal */
 .modal {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
-  display: flex;
   align-items: center;
   justify-content: center;
+  display: none;
+  position: fixed;
+}
+
+.open {
+  display: flex;
 }
 
 .modal-container {
   background-color: #fff;
   width: 900px;
+  max-width: calc(100% - 32px);
   min-height: 200px;
   position: relative;
 }
@@ -343,6 +348,7 @@ html {
   display: block;
   font-size: 15px;
   font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .modal-input {
@@ -350,4 +356,29 @@ html {
   width: 100%;
   padding: 10px;
   font-size: 15px;
+  margin-bottom: 24px;
+}
+
+#buy-ticket {
+  width: 100%;
+  background-color: #009688;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  padding: 16px 0px;
+  cursor: pointer;
+}
+
+#buy-ticket:hover {
+  opacity: 0.8;
+}
+
+.modal-footer {
+  padding: 16px;
+  text-align: right;
+}
+
+.modal-footer a {
+  color: rgb(33, 150, 243);
 }
