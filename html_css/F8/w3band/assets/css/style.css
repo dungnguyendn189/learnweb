@@ -5,6 +5,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -18,6 +19,10 @@ html {
 
 .text-center {
   text-align: center;
+}
+
+.pull-right {
+  float: right !important;
 }
 
 .mt-8 {
@@ -185,7 +190,7 @@ html {
 
 .content-section {
   max-width: 800px;
-  padding: 64px 0;
+  padding: 64px 0 112px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -265,7 +270,6 @@ html {
 
 .place-list {
   margin-top: 32px;
-  margin-bottom: 48px;
 }
 
 .place-img {
@@ -294,13 +298,15 @@ html {
   margin-top: 15px;
   line-height: 1.6;
 }
-.place-buy-btn {
+.btn {
   color: #fff;
   background-color: #000;
   text-decoration: none;
   padding: 11px 16px;
   display: inline-block;
   margin-top: 15px;
+  border: none;
+  cursor: pointer;
 }
 
 .place-buy-btn:hover {
@@ -445,4 +451,35 @@ html {
   padding: 10px;
   border: 1px solid #ccc;
   width: 100%;
+}
+
+.map-section img {
+  width: 100%;
+}
+
+#footer {
+  padding: 64px 16px;
+  text-align: center;
+}
+
+#footer .socials-list {
+  font-size: 24px;
+  color: #ccc;
+}
+
+#footer .socials-list a {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+
+#footer .socials-list a :hover {
+  opacity: 0.4;
+}
+
+.copy-right {
+  padding: 15px 0;
+}
+
+.copy-right a {
+  color:  rgba(0, 0, 0, 0.6);
 }
