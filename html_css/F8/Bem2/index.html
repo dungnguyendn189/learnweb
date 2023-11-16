@@ -26,53 +26,52 @@
                     <i class="fa-solid fa-circle-xmark"></i>
                 </div>
             </div> -->
+            <!-- <div class="toast toast--info">
+                <div class="toast__icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">Info</h3>
+                    <p class="toast__mess">Máy vi tính của bạn đã được kết nối internet
+                        (Windows , ubuntu , Macos)</p>
+                </div>
+                <div class="toast__closed">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+            </div>
+            <div class="toast toast--warning">
+                <div class="toast__icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">Warning</h3>
+                    <p class="toast__mess">Máy vi tính của bạn đã được kết nối internet
+                        (Windows , ubuntu , Macos)</p>
+                </div>
+                <div class="toast__closed">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+            </div>
+            <div class="toast toast--error">
+                <div class="toast__icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">Errors</h3>
+                    <p class="toast__mess">Máy vi tính của bạn đã được kết nối internet
+                        (Windows , ubuntu , Macos)</p>
+                </div>
+                <div class="toast__closed">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+            </div> -->
         </div>
 
-        <!-- <div class="toast toast--info">
-            <div class="toast__icon">
-                <i class="fa-solid fa-circle-check"></i>
-            </div>
-            <div class="toast__body">
-                <h3 class="toast__title">Info</h3>
-                <p class="toast__mess">Máy vi tính của bạn đã được kết nối internet
-                    (Windows , ubuntu , Macos)</p>
-            </div>
-            <div class="toast__closed">
-                <i class="fa-solid fa-circle-xmark"></i>
-            </div>
-        </div>
-        <div class="toast toast--warning">
-            <div class="toast__icon">
-                <i class="fa-solid fa-circle-check"></i>
-            </div>
-            <div class="toast__body">
-                <h3 class="toast__title">Warning</h3>
-                <p class="toast__mess">Máy vi tính của bạn đã được kết nối internet
-                    (Windows , ubuntu , Macos)</p>
-            </div>
-            <div class="toast__closed">
-                <i class="fa-solid fa-circle-xmark"></i>
-            </div>
-        </div>
-        <div class="toast toast--error">
-            <div class="toast__icon">
-                <i class="fa-solid fa-circle-check"></i>
-            </div>
-            <div class="toast__body">
-                <h3 class="toast__title">Errors</h3>
-                <p class="toast__mess">Máy vi tính của bạn đã được kết nối internet
-                    (Windows , ubuntu , Macos)</p>
-            </div>
-            <div class="toast__closed">
-                <i class="fa-solid fa-circle-xmark"></i>
-            </div>
-        </div> -->
-
-        <div onlick="showSuccessToast();" class="btn btn--sucess">Show Success
+        <div onclick="showSuccessToast();" class="btn btn--sucess">Show Success
             toast</div>
-        <div onlick="showErrorToast();" class="btn btn--error">Show Error toast</div>
-        <div onlick="showInfoToast();" class="btn btn--info">Show Info toast</div>
-        <div onlick="showWarningToast();" class="btn btn--warning">Show Warning
+        <div onclick="showErrorToast();" class="btn btn--error">Show Error toast</div>
+        <div onclick="showInfoToast();" class="btn btn--info">Show Info toast</div>
+        <div onclick="showWarningToast();" class="btn btn--warning">Show Warning
             toast</div>
 
         <script>
@@ -105,7 +104,6 @@
            
 
             function showSuccessToast() {
-                alert('aaa');
                 toast ({
                 title : 'Thành Công',
                 message : 'Máy vi tính của bạn đã được kết nối internet (Windows , ubuntu , Macos)',
