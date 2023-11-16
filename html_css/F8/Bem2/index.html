@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="toast">
+            <!-- <div class="toast toast--success">
+                <div class="toast__icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">Success</h3>
+                    <p class="toast__mess">Máy vi tính của bạn đã được kết nối
+                        internet
+                        (Windows , ubuntu , Macos)</p>
+                </div>
+                <div class="toast__closed">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- <div class="toast toast--info">
+            <div class="toast__icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="toast__body">
+                <h3 class="toast__title">Info</h3>
+                <p class="toast__mess">Máy vi tính của bạn đã được kết nối internet
+                    (Windows , ubuntu , Macos)</p>
+            </div>
+            <div class="toast__closed">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+        <div class="toast toast--warning">
+            <div class="toast__icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="toast__body">
+                <h3 class="toast__title">Warning</h3>
+                <p class="toast__mess">Máy vi tính của bạn đã được kết nối internet
+                    (Windows , ubuntu , Macos)</p>
+            </div>
+            <div class="toast__closed">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+        <div class="toast toast--error">
+            <div class="toast__icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="toast__body">
+                <h3 class="toast__title">Errors</h3>
+                <p class="toast__mess">Máy vi tính của bạn đã được kết nối internet
+                    (Windows , ubuntu , Macos)</p>
+            </div>
+            <div class="toast__closed">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div> -->
+
+        <div onlick="showSuccessToast();" class="btn btn--sucess">Show Success
+            toast</div>
+        <div onlick="showErrorToast();" class="btn btn--error">Show Error toast</div>
+        <div onlick="showInfoToast();" class="btn btn--info">Show Info toast</div>
+        <div onlick="showWarningToast();" class="btn btn--warning">Show Warning
+            toast</div>
+
+        <script>
+            function toast({title = '', message = '', type = 'info', duration = 3000}){
+                const main = document.getElementById('toast'); 
+                const icons = {
+                    success : 'fa-solid fa-circle-check',
+                    warining : 'fa-solid fa-circle-exclamation',
+                    info : 'fa-solid fa-circle-info',
+                    error : 'fa-solid fa-triangle-exclamation',
+                }
+                const icon = icons[type];
+                if(main){
+                    const toast = document.createElement('div');
+                    toast.classList.add('toast', `toast--${type}`);
+                    toast.innerHTML = `<div class="toast__icon">
+                    <i class="${icon}"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">${title}</h3>
+                    <p class="toast__mess">${message}
+                </div>
+                <div class="toast__closed">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>` ;
+                main.appendChild(toast);
+                }
+            }
+
+           
+
+            function showSuccessToast() {
+                alert('aaa');
+                toast ({
+                title : 'Thành Công',
+                message : 'Máy vi tính của bạn đã được kết nối internet (Windows , ubuntu , Macos)',
+                type : 'success',
+                duration : 3000
+            });
+            }
+
+            function showErrorToast() {
+                toast ({
+                title : 'Thất bại',
+                message : 'Máy vi tính của bạn không được kết nối internet (Windows , ubuntu , Macos)',
+                type : 'error',
+                duration : 3000
+            });
+            }
+            function showInfoToast(){
+                toast ({
+                title : 'Info',
+                message : 'Thuộc tính của bạn',
+                type : 'info',
+                duration : 3000
+            });
+            }
+            function showWarningToast(){
+                toast ({
+                title : 'Cảnh Báo',
+                message : 'Cảnh báo đăng nhập',
+                type : 'error',
+                duration : 3000
+            });
+            }
+        </script>
+    </body>
+</html>
