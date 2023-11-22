@@ -3,9 +3,6 @@
   --black-color: #000;
   --text-color: #333;
   --primary-color: rgb(238, 75, 43);
-  
-
-
 }
 
 * {
@@ -41,4 +38,59 @@ html {
   to {
     opacity: 1;
   }
+}
+
+.btn {
+  min-width: 142px;
+  height: 34px;
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.4rem;
+  padding: 0 12px;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn.btn-nomarl:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #ccc;
+}
+
+.btn.btn--primary {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.btn.btn--disable {
+  cursor: default;
+  background-color: #999;
+  color: #ccc;
+}
+
+.btn.btn--size-s {
+  height: 32px;
+  font-size: 12px;
+  padding: 0 8px;
+}
+
+.auth-form__socials-icon {
+  font-size: 1.8rem;
+}
+
+.auth-form__socials-facebook {
+  background-color: #3a5a98;
+  color: var(--white-color);
+}
+
+.auth-form__socials-title {
+  margin: 0 36px;
+}
+
+.auth-form__socials-google {
+  background-color: var(--white-color);
+  color: #666;
 }
