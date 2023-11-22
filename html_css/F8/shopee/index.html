@@ -190,18 +190,33 @@
               </svg>
             </div>
             <div class="header__search">
-              <input
-                class="header__search-input"
-                type="text"
-                placeholder="Nhập để tìm kiếm sản phẩm"
-              />
+              <div class="header__search-input-warp">
+                <input
+                  class="header__search-input"
+                  type="text"
+                  placeholder="Nhập để tìm kiếm sản phẩm"
+                />
+                <div class="header__search-history">
+                    <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                    <ul class="header__search-history-list">
+                        <div class="header__search-history-item"><a href="">Kaka</a></div>
+                        <div class="header__search-history-item"><a href="">Hihi</a></div>
+                        <div class="header__search-history-item"><a href="">Huhu</a></div>
+
+
+                    </ul>
+                </div>
+              </div>
+
               <div class="header__search-select">
                 <span class="header__search-select-label">Trong Shop</span>
                 <i
                   class="header__search-select-icon fa-solid fa-chevron-down"
                 ></i>
                 <ul class="header__search-option">
-                  <li class="header__search-option-item header__search-option-item-active">
+                  <li
+                    class="header__search-option-item header__search-option-item-active"
+                  >
                     <span>Trong Shop</span>
                     <i class="fa-solid fa-check"></i>
                   </li>
