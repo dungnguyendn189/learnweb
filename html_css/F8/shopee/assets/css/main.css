@@ -130,6 +130,7 @@
   display: none;
   animation: headerNotiGrow ease-in 0.25s;
   -webkit-animation: headerNotiGrow ease-in 0.25s;
+  z-index: 6;
 }
 
 .header__notify::before {
