@@ -703,3 +703,9 @@
   display: block;
   line-height: 38px;
 }
+
+/* App Container  */
+
+.app_container {
+  background-color: #f5f5f5;
+}
