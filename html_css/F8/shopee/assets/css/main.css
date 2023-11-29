@@ -709,3 +709,62 @@
 .app_container {
   background-color: #f5f5f5;
 }
+
+.catelogry {
+  background-color: var(--white-color);
+  border-radius: 2px;
+}
+
+.catelogry__heading {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.catelogry__heading-icon {
+  font-size: 1.2rem;
+  margin-right: 4px;
+}
+
+.catelogry-list {
+  padding-left: 0;
+  padding-bottom: 8px;
+  margin-left: 9px;
+}
+
+.catelogry-item {
+  list-style: none;
+}
+
+.catelogry-item__link {
+  position: relative;
+  right: 0;
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  display: block;
+  padding: 6px 16px;
+  transition: right linear 0.1s;
+}
+
+.catelogry-item__link:hover {
+  color: var(--primary-color);
+  right: -4px;
+}
+
+.catelogry-item__active .catelogry-item__link {
+  color: var(--primary-color);
+}
+
+.catelogry-item__active .catelogry-item__link::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  border: 4px solid;
+  transform: translateY(-50%);
+  border-color: transparent transparent transparent var(--primary-color);
+}
