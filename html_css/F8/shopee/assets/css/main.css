@@ -715,13 +715,18 @@
   border-radius: 2px;
 }
 
+.app_container-content {
+  padding-top: 36px;
+}
+
 .catelogry__heading {
   font-size: 1.6rem;
   color: var(--text-color);
   padding: 12px 16px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 0;
 }
 
 .catelogry__heading-icon {
@@ -768,3 +773,5 @@
   transform: translateY(-50%);
   border-color: transparent transparent transparent var(--primary-color);
 }
+
+/* Home Page  */
