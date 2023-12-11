@@ -6,7 +6,9 @@
 
   --navbar-height: 30px;
   --header-height: 120px;
-  --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+  --header-with-search-height: calc(
+    var(--header-height) - var(--navbar-height)
+  );
 }
 
 * {
@@ -49,8 +51,8 @@ html {
   width: 83.33334%;
 }
 
-.grid__column-8 {}
-
+.grid__column-8 {
+}
 
 @keyframes fadeIn {
   from {
@@ -72,7 +74,6 @@ html {
   }
 }
 
-
 .btn {
   min-width: 124px;
   height: 34px;
@@ -83,9 +84,10 @@ html {
   padding: 0 12px;
   outline: none;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
 }
 
 .btn.btn-nomarl:hover {
@@ -167,7 +169,8 @@ html {
   margin-right: 12px;
 }
 
-.header__cart-item-price-warp {}
+.header__cart-item-price-warp {
+}
 
 .header__cart-item-name {
   font-size: 1.4rem;
