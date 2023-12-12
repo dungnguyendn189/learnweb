@@ -1,12 +1,14 @@
 import logo from "./logo.svg";
 import "./App.scss";
+import MyComponent from "./example/mycomponent";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Lồn Báo</p>
+        <p>Dungx Map</p>
+        <MyComponent></MyComponent>
         <a
           className="App-link"
           href="https://reactjs.org"
