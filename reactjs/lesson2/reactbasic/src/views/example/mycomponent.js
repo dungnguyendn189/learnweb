@@ -1,6 +1,6 @@
 import React from "react";
+import AddReactComponent from "./AddReactComponent";
 import ChildComponents from "./ChildComponent";
-
 //bọc 2 thẻ div trong một khối code
 //   <React.Fragment>
 //     <input
@@ -42,8 +42,6 @@ import ChildComponents from "./ChildComponent";
 
 class MyComponent extends React.Component {
   state = {
-    firstName: "",
-    lastname: "",
     arrJobs: [
       {
         id: "123",
@@ -63,18 +61,6 @@ class MyComponent extends React.Component {
     ],
   };
 
-  handleOnchangeFirstName = (event) => {
-    this.setState({
-      firstName: event.target.value,
-    });
-  };
-
-  handleOnchangeLastName = (event) => {
-    this.setState({
-      lastname: event.target.value,
-    });
-  };
-
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("Data : ", this.state);
@@ -82,35 +68,14 @@ class MyComponent extends React.Component {
 
   render() {
     return (
-      <form>
-        <label for="fname">First name:</label>
-        <br />
-        <input
-          type="text"
-          value={this.state.firstName}
-          onChange={(event) => this.handleOnchangeFirstName(event)}
-        />
-        <br />
-        <label for="lname">Last name:</label>
-        <br />
-        <input
-          type="text"
-          value={this.state.lastname}
-          onChange={(event) => this.handleOnchangeLastName(event)}
-        />
-        <br />
-        <br />
-        <input
-          type="button"
-          value="Submit"
-          onClick={(event) => this.handleSubmit(event)}
-        />
+      <>
+        <AddReactComponent />
         <ChildComponents
-          title={this.state.firstName}
-          name={this.state.lastname}
+          title={this.state.titlejob}
+          name={this.state.salary}
           arrJobs={this.state.arrJobs}
         />
-      </form>
+      </>
     );
   }
 }
