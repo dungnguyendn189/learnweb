@@ -3,13 +3,13 @@ import ChildComponents from "./ChildComponent";
 
 class AddReactComponent extends React.Component {
   state = {
-    titlejob: "",
+    title: "",
     salary: "",
   };
 
   handleChangeTitJob = (event) => {
     this.setState({
-      titlejob: event.target.value,
+      title: event.target.value,
     });
   };
 
@@ -21,7 +21,20 @@ class AddReactComponent extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    if (!this.state.title || !this.state.salary) {
+      alert("In put title or salary Please");
+      return;
+    }
     console.log("Data : ", this.state);
+    this.props.addNewJob({
+      id: Math.floor(Math.random() * 11),
+      title: this.state.title,
+      salary: this.state.salary,
+    });
+    this.setState({
+      title: "",
+      salary: "",
+    });
   };
 
   render() {
@@ -32,7 +45,7 @@ class AddReactComponent extends React.Component {
           <br />
           <input
             type="text"
-            value={this.state.titlejob}
+            value={this.state.title}
             onChange={(event) => this.handleChangeTitJob(event)}
           />
           <br />
