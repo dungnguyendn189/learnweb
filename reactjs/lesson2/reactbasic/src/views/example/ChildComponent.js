@@ -1,27 +1,42 @@
 import React from "react";
 
 class ChildComponents extends React.Component {
+  state = {
+    showjob: false,
+  };
+
+  handleShowHideButton = () => {
+    this.setState({
+      showjob: !this.state.showjob,
+    });
+  };
+
   render() {
-    let { title, name, arrJobs } = this.props;
-    let a = "";
+    let { arrJobs } = this.props;
+    let { showjob } = this.state;
+
     return (
       <div className="job-list">
-        {arrJobs.map((item, index) => {
-          return (
-            <div>
-              {
-                (a = arrJobs.map((item, index) => {
-                  return (
-                    <div key={item.id}>
-                      {item.title} - {item.salary}
-                    </div>
-                  );
-                }))
+        {showjob === false && (
+          <div>
+            <button>show</button>
+          </div>
+        )}
+        {showjob && (
+          <>
+            {arrJobs.map((item, index) => {
+              if (item.salary > 400) {
+                return (
+                  <div key={item.id}>
+                    {item.title} - {item.salary} $
+                  </div>
+                );
               }
-            </div>
-          );
-        })}
-        {console.log("check Map array", a)}
+            })}
+            <button>hide</button>
+          </>
+        )}
+        <div></div>
       </div>
     );
   }

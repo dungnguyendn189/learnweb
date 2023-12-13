@@ -1,5 +1,6 @@
 import React from "react";
 import ChildComponents from "./ChildComponent";
+
 //bọc 2 thẻ div trong một khối code
 //   <React.Fragment>
 //     <input
@@ -47,17 +48,17 @@ class MyComponent extends React.Component {
       {
         id: "123",
         title: "Develope",
-        salary: "500$",
+        salary: "500",
       },
       {
         id: "124",
         title: "Tesster",
-        salary: "400$",
+        salary: "400",
       },
       {
         id: "125",
         title: "PM",
-        salary: "600$",
+        salary: "600",
       },
     ],
   };
