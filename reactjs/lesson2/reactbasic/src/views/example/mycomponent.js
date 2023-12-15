@@ -61,22 +61,10 @@ class MyComponent extends React.Component {
     ],
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-  };
-
-  addNewJob = (job) => {
-    console.log("check job", job);
-
-    this.setState({
-      arrJobs: [...this.state.arrJobs, job],
-    });
-  };
-
   render() {
     return (
       <>
-        <AddReactComponent addNewJob={this.addNewJob} />
+        <AddReactComponent />
         <ChildComponents
           title={this.state.titlejob}
           name={this.state.salary}
