@@ -48,6 +48,7 @@ class AddReactComponent extends React.Component {
             value={this.state.title}
             onChange={(event) => this.handleChangeTitJob(event)}
           />
+          
           <br />
           <label for="lname"> Salary:</label>
           <br />
