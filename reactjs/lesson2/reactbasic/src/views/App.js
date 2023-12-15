@@ -1,7 +1,6 @@
 import logo from "./logo.svg";
 import "./App.scss";
 import MyComponent from "./example/mycomponent";
-import funcComponents from "./example/funcComponent";
 
 function App() {
   return (
@@ -17,4 +16,4 @@ function App() {
 
 export default App;
 
-// https://www.youtube.com/watch?v=ev8uNM4SNx4&list=PLncHg6Kn2JT4C0enPGQPK7ZIlEoZ1ZvRy&index=23
+// https://www.youtube.com/watch?v=R79CtLxih-A&list=PLncHg6Kn2JT4C0enPGQPK7ZIlEoZ1ZvRy&index=25
