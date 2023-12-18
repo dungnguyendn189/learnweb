@@ -1,5 +1,7 @@
 import React from "react";
 import "./listtodo.scss";
+import Addtodo from "./addtodo";
+import { toast } from "react-toastify";
 
 class ListToDo extends React.Component {
   state = {
@@ -19,6 +21,25 @@ class ListToDo extends React.Component {
     ],
   };
 
+  addNewTodo = (todo) => {
+    // let currentListToDo = this.state.listTodo;
+    // currentListToDo.push(todo);
+    this.setState({
+      listTodo: [...this.state.listTodo, todo],
+      // listTodo: currentListToDo,
+    });
+    toast.success("Cảm ơn bạn đã nhập vào");
+  };
+
+  handleDeletedTodo = (todo) => {
+    console.log("check todo", todo);
+    let currentTodo = this.state.listTodo;
+    currentTodo = currentTodo.filter((item) => item.id !== todo.id);
+    this.setState({
+      listTodo: currentTodo,
+    });
+  };
+
   render() {
     // let listTodo = this.state.listTodo;
     let { listTodo } = this.state;
@@ -26,19 +47,23 @@ class ListToDo extends React.Component {
     return (
       <>
         <div className="list-to-do-container">
-          <div className="add-todo">
-            <input type="text" />
-            <button type="button">Add</button>
-          </div>
+          <Addtodo addNewTodo={this.addNewTodo} />
           <div className="list-to-do-content">
             {listTodo &&
               listTodo.length > 0 &&
               listTodo.map((item, index) => {
                 return (
                   <div className="todo-child" key={item.id}>
-                    <span>To Do 1</span>
+                    <span>
+                      {index + 1} - {item.title}
+                    </span>
                     <button type="button">Edit</button>
-                    <button type="button">Deleted</button>
+                    <button
+                      type="button"
+                      onClick={() => this.handleDeletedTodo(item)}
+                    >
+                      Deleted
+                    </button>
                   </div>
                 );
               })}
