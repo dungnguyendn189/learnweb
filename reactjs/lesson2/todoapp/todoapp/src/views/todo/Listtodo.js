@@ -42,6 +42,25 @@ class ListToDo extends React.Component {
     toast.error("Delted thành công");
   };
   handleEditTodo = (todo) => {
+    let { editTodo, listTodo } = this.state;
+    let isEmptyObj = Object.keys(editTodo).length === 0;
+
+    if (isEmptyObj === false && editTodo.id === todo.id) {
+      let listTodoCopy = [...listTodo];
+
+      let objIndex = listTodoCopy.findIndex((obj) => obj.id == todo.id);
+      //Log object to Console.
+      console.log("Before update: ", listTodoCopy[objIndex]);
+
+      //Update object's name property.
+      listTodoCopy[objIndex].title = editTodo.title;
+      this.setState({
+        listTodo: listTodoCopy,
+        editTodo: {},
+      });
+
+      return;
+    }
     this.setState({
       editTodo: todo,
     });
@@ -95,7 +114,9 @@ class ListToDo extends React.Component {
                       type="button"
                       onClick={() => this.handleEditTodo(item)}
                     >
-                      Edit
+                      {isEmptyObj === false && isEmptyObj.id === listTodo.id
+                        ? "Save"
+                        : "Edit"}
                     </button>
                     <button
                       type="button"
