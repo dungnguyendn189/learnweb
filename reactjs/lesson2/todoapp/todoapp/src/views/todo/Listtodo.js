@@ -31,21 +31,17 @@ class ListToDo extends React.Component {
             <button type="button">Add</button>
           </div>
           <div className="list-to-do-content">
-            <div className="todo-child">
-              <span>To Do 1</span>
-              <button type="button">Edit</button>
-              <button type="button">Deleted</button>
-            </div>
-            <div className="todo-child">
-              <span>To Do 1</span>
-              <button type="button">Edit</button>
-              <button type="button">Deleted</button>
-            </div>
-            <div className="todo-child">
-              <span>To Do 1</span>
-              <button type="button">Edit</button>
-              <button type="button">Deleted</button>
-            </div>
+            {listTodo &&
+              listTodo.length > 0 &&
+              listTodo.map((item, index) => {
+                return (
+                  <div className="todo-child" key={item.id}>
+                    <span>To Do 1</span>
+                    <button type="button">Edit</button>
+                    <button type="button">Deleted</button>
+                  </div>
+                );
+              })}
           </div>
         </div>
       </>
