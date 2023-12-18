@@ -43,14 +43,13 @@ class ListToDo extends React.Component {
   };
   handleEditTodo = (todo) => {
     let { editTodo, listTodo } = this.state;
-    let isEmptyObj = Object.keys(editTodo).length === 0;
 
+    let isEmptyObj = Object.keys(editTodo).length === 0;
     if (isEmptyObj === false && editTodo.id === todo.id) {
       let listTodoCopy = [...listTodo];
 
       let objIndex = listTodoCopy.findIndex((obj) => obj.id == todo.id);
       //Log object to Console.
-      console.log("Before update: ", listTodoCopy[objIndex]);
 
       //Update object's name property.
       listTodoCopy[objIndex].title = editTodo.title;
@@ -58,6 +57,7 @@ class ListToDo extends React.Component {
         listTodo: listTodoCopy,
         editTodo: {},
       });
+      toast.success("Update Todo Successs ");
 
       return;
     }
