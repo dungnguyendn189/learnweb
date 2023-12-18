@@ -38,6 +38,7 @@ class ListToDo extends React.Component {
     this.setState({
       listTodo: currentTodo,
     });
+    toast.error("Delted thành công");
   };
 
   render() {
