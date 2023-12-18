@@ -19,6 +19,7 @@ class ListToDo extends React.Component {
         title: "Fucking Bug",
       },
     ],
+    editTodo: {},
   };
 
   addNewTodo = (todo) => {
@@ -40,11 +41,23 @@ class ListToDo extends React.Component {
     });
     toast.error("Delted thành công");
   };
-
+  handleEditTodo = (todo) => {
+    this.setState({
+      editTodo: todo,
+    });
+  };
+  handleOnChangeEditTodo = (event) => {
+    let copyEditToDo = { ...this.state.editTodo };
+    copyEditToDo.title = event.target.value;
+    this.setState({
+      editTodo: copyEditToDo,
+    });
+  };
   render() {
     // let listTodo = this.state.listTodo;
-    let { listTodo } = this.state;
-
+    let { listTodo, editTodo } = this.state;
+    let isEmptyObj = Object.keys(editTodo).length === 0;
+    console.log("Check Emptyobj", isEmptyObj);
     return (
       <>
         <div className="list-to-do-container">
@@ -55,10 +68,35 @@ class ListToDo extends React.Component {
               listTodo.map((item, index) => {
                 return (
                   <div className="todo-child" key={item.id}>
-                    <span>
-                      {index + 1} - {item.title}
-                    </span>
-                    <button type="button">Edit</button>
+                    {isEmptyObj === true ? (
+                      <span>
+                        {index + 1} - {item.title}
+                      </span>
+                    ) : (
+                      <>
+                        {editTodo.id === item.id ? (
+                          <span>
+                            {index + 1} -{" "}
+                            <input
+                              value={editTodo.title}
+                              onChange={(event) =>
+                                this.handleOnChangeEditTodo(event)
+                              }
+                            />
+                          </span>
+                        ) : (
+                          <span>
+                            {index + 1} - {item.title}
+                          </span>
+                        )}
+                      </>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => this.handleEditTodo(item)}
+                    >
+                      Edit
+                    </button>
                     <button
                       type="button"
                       onClick={() => this.handleDeletedTodo(item)}
