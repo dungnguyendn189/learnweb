@@ -1,0 +1,24 @@
+.container-header {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.container {
+  .container-body {
+    .add-todo {
+      margin-bottom: 10px;
+      input {
+        margin-right: 20px;
+      }
+    }
+    .add-todo-content {
+      margin: 10px 0;
+      span {
+        margin-right: 10px;
+      }
+      button {
+        margin-left: 8px;
+      }
+    }
+  }
+}
