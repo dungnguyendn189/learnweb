@@ -45,7 +45,7 @@ class BodyContainer extends React.Component {
     if (!isEmptyObj && editTodo.id === event.id) {
       let listNameCopy = [...listName];
 
-      let objIndex = listNameCopy.findIndex((obj) => obj.id == event.id);
+      let objIndex = listNameCopy.findIndex((obj) => obj.id === event.id);
       listNameCopy[objIndex].name = editTodo.name;
       this.setState({
         listName: listNameCopy,
@@ -74,6 +74,8 @@ class BodyContainer extends React.Component {
     console.log(isEmptyObj);
     return (
       <>
+        <div className="container-header">Todo App For Nguyễn Đức Dũng</div>
+
         <div className="container">
           <AddTodo addTodo={this.addTodo} />
           <div className="container-body">
@@ -89,7 +91,7 @@ class BodyContainer extends React.Component {
                         </span>
                       ) : (
                         <>
-                          {editTodo.id == item.id ? (
+                          {editTodo.id === item.id ? (
                             <span>
                               {index + 1} -{" "}
                               <input
