@@ -1,6 +1,6 @@
 import React from "react";
 import "./nav.scss";
-import { Link, NavLink, BrowserRouter } from "react-router-dom";
+import { Routes, Route, Outlet, Link, NavLink } from "react-router-dom";
 
 class Nav extends React.Component {
   render() {
