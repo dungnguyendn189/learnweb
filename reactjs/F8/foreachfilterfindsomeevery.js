@@ -24,14 +24,17 @@ var names2 = [
   {
     name: "Dart",
     coin: 440,
+    isFinish: true,
   },
   {
     name: "React",
     coin: 600,
+    isFinish: true,
   },
   {
     name: "ReactJS",
     coin: 980,
+    isFinish: false,
   },
 ];
 
@@ -44,3 +47,9 @@ var filterName2 = names2.filter((e) => {
 console.log(filterName2);
 
 //some
+
+var someName2 = names2.some((e) => {
+  return e.isFinish == true;
+});
+
+console.log(someName2);
