@@ -35,8 +35,12 @@ var names2 = [
   },
 ];
 
+//filter
+
 var filterName2 = names2.filter((e) => {
   return e.coin > 500;
 });
 
 console.log(filterName2);
+
+//some
