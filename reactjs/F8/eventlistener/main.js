@@ -1,7 +1,5 @@
 var btn = document.getElementById("btn");
 
-btn.onclick = function () {
-  console.log("Click Me");
-  console.log("Viet381");
-  alert("Click Me");
-};
+btn.addEventListener("click", function () {
+  console.log(Math.random());
+});
