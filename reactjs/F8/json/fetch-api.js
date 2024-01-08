@@ -73,7 +73,9 @@ function handleCreateForm() {
       name: nameInput.value,
       description: description.value,
     };
-    createCourse(formData);
+    createCourse(formData, function () {
+      getCourses(renderCourse);
+    });
   };
 }
 
