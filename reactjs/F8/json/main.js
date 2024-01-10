@@ -129,3 +129,10 @@ getComments()
     });
     commentsBlock.innerHTML = html;
   });
+
+function handleUpdateForm(id) {
+  var createBTN = document.querySelector("#create");
+  var saveBTN = document.querySelector("#save");
+  createBTN.style.display = "block";
+  saveBTN.style.display = "none";
+}

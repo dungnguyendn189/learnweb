@@ -58,8 +58,15 @@ function getCourses(callback) {
 
 function renderCourse(course) {
   var htmls = course.map((e) => {
-    return `<li><h3>${e.name}</h3></li>
-    <li><span>${e.description}</span></li>`;
+    return `
+    <ul data-id="${e.id}">
+    <li><h3>${e.name}</h3></li>
+    <li><span>${e.description}</span></li>
+    </br>
+    <button onclick = "deleteCourse('${e.id}')">Xoá</button>
+    <button onclick = "handleUpdateForm('${e.id}')">Edit</button>
+    </ul>
+    `;
   });
   listCourseBlock.innerHTML = htmls;
 }
@@ -88,6 +95,70 @@ function createCourse(data) {
     body: JSON.stringify(data),
   };
   fetch(listCourseAPI, options)
+    .then(function (respone) {
+      return respone.json();
+    })
+    .then(callback);
+}
+
+function deleteCourse(id) {
+  var options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  fetch(listCourseAPI + "/" + `${id}`, options)
+    .then(function (respone) {
+      return respone.json();
+    })
+    .then(function () {
+      var getID = document.querySelector(`.${id}`);
+      getID.remove();
+    });
+}
+
+function handleUpdateForm(id) {
+  var createBTN = document.querySelector("#create");
+  var saveBTN = document.querySelector("#save");
+  createBTN.style.display = "none";
+  saveBTN.style.display = "block";
+  fetch(listCourseAPI + "/" + `${id}`)
+    .then(function (respone) {
+      return respone.json();
+    })
+    .then(function (data) {
+      var nameInput = document.querySelector('input[name="name"]');
+      var description = document.querySelector('input[name="description"]');
+      nameInput.value = data.name;
+      description.value = data.description;
+    });
+  saveBTN.onclick = function () {
+    var name = document.querySelector('input[name="name"]').value;
+    var description = document.querySelector('input[name="description"]').value;
+    var updateData = {
+      name: name,
+      description: description,
+    };
+    updateApi(id, updateData, function () {
+      getCourses(renderCourse);
+      var createBTN = document.querySelector("#create");
+      var saveBTN = document.querySelector("#save");
+      createBTN.style.display = "block";
+      saveBTN.style.display = "none";
+    });
+  };
+}
+
+function updateApi(id, data, callback) {
+  var updateAIP = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  };
+  fetch(listCourseAPI + "/" + `${id}`, updateAIP)
     .then(function (respone) {
       return respone.json();
     })
