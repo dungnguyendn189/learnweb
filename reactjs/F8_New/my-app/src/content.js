@@ -1,37 +1,45 @@
-import { useEffect } from "react";
-import { useState } from "react";
+// import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+const lessons = [
+  {
+    id: 1,
+    name: "ReactJS là gì ? Tại sao nên học reactJS",
+  },
+  {
+    id: 2,
+    name: "SPA/MP là gì",
+  },
+  {
+    id: 3,
+    name: "Arrow function",
+  },
+];
 
 function Content() {
-  const tabs = ["posts", "comments", "albums", "photos", "todos", "users"];
-  const [titles, setTitles] = useState([]);
-  const [type, setType] = useState("posts");
+  const [lessonID, setLesson] = useState(1);
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/${type}`)
-      .then((e) => e.json())
-      .then((data) => setTitles(data));
-  }, [type]);
-  console.log(type);
+    const handleComment = (detail) => {
+      console.log(detail);
+    };
+    window.addEventListener(`lesson-${lessonID}`, handleComment);
+    return () => {
+      window.removeEventListener(`lesson-${lessonID}`, handleComment);
+    };
+  }, [lessonID]);
   return (
     <div>
-      {tabs.map((tab) => (
-        <button
-          style={
-            type === tab
-              ? {
-                  color: "white",
-                  backgroundColor: "blue",
-                }
-              : {}
-          }
-          key={tab}
-          onClick={() => setType(tab)}
-        >
-          {tab}
-        </button>
-      ))}
       <ul>
-        {titles.map((a) => (
-          <li key={a.id}>{a.body}</li>
+        {lessons.map((e) => (
+          <li
+            key={e.id}
+            style={{
+              color: lessonID === e.id ? "red" : "#333",
+            }}
+            onClick={() => setLesson(e.id)}
+          >
+            {e.name}
+          </li>
         ))}
       </ul>
     </div>
