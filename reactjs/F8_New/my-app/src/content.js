@@ -1,47 +1,38 @@
 // import { useEffect } from "react";
-import { useEffect, useState } from "react";
-
-const lessons = [
-  {
-    id: 1,
-    name: "ReactJS là gì ? Tại sao nên học reactJS",
-  },
-  {
-    id: 2,
-    name: "SPA/MP là gì",
-  },
-  {
-    id: 3,
-    name: "Arrow function",
-  },
-];
+import { useEffect, useState, useLayoutEffect, useRef } from "react";
 
 function Content() {
-  const [lessonID, setLesson] = useState(1);
+  const [count, setCount] = useState(60);
+
+  const timerID = useRef();
+  const preCount = useRef();
+  const h1Ref = useRef();
+
   useEffect(() => {
-    const handleComment = (detail) => {
-      console.log(detail);
-    };
-    window.addEventListener(`lesson-${lessonID}`, handleComment);
-    return () => {
-      window.removeEventListener(`lesson-${lessonID}`, handleComment);
-    };
-  }, [lessonID]);
+    preCount.current = count;
+  }, [count]);
+  const handleStart = () => {
+    timerID.current = setInterval(() => {
+      setCount((e) => e - 1);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    const react = h1Ref.current.getBoundingClientRect();
+    console.log(react);
+  });
+
+  const handleStop = () => {
+    clearInterval(timerID.current);
+  };
+
+  console.log(count, preCount.current);
   return (
     <div>
-      <ul>
-        {lessons.map((e) => (
-          <li
-            key={e.id}
-            style={{
-              color: lessonID === e.id ? "red" : "#333",
-            }}
-            onClick={() => setLesson(e.id)}
-          >
-            {e.name}
-          </li>
-        ))}
-      </ul>
+      <h1 ref={h1Ref}>{count}</h1>
+      <h1>{count}</h1>
+      <button onClick={handleStart}>Start</button>
+      <button onClick={handleStop}>Stop</button>
     </div>
   );
 }

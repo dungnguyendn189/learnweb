@@ -22,6 +22,7 @@ setPosts(posts);
 }, [type]);
 
 return (
+
 <div>
 {tabs.map((tab) => (
 <button
