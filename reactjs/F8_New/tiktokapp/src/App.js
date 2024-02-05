@@ -1,13 +1,15 @@
 import Content from "./content";
-import { useState } from "react";
+import "./App.css";
+import { ThemeContext } from "./ThemeContex";
+import { useContext } from "react";
 
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const context = useContext(ThemeContext);
   return (
     <div className="App">
       <div style={{ padding: 20 }}>
-        <button>Toggle Theme</button>
-        <Content theme={theme} />
+        <button onClick={context.v}>Toggle Theme</button>
+        <Content />
       </div>
     </div>
   );
