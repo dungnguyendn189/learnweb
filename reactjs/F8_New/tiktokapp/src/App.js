@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <div style={{ padding: 20 }}>
-        <button onClick={context.v}>Toggle Theme</button>
+        <button onClick={context.toggleTheme}>Toggle Theme</button>
         <Content />
       </div>
     </div>
