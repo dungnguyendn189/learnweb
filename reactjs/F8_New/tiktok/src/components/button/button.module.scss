@@ -1,0 +1,12 @@
+.btn {
+  background-color: #ccc;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+}
+
+.primary {
+  color: #fff;
+  background-color: violet;
+}
