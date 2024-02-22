@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Homepage from "./pages/Home";
 import NewsPage from "./pages/News";
 import ContactPage from "./pages/Contact";
@@ -10,13 +10,13 @@ function App() {
       <nav>
         <ul>
           <li>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="/news">New</a>
+            <Link to="/news">New</Link>
           </li>
           <li>
-            <a href="/contact">Contact</a>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </nav>

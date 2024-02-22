@@ -1,16 +1,23 @@
-import Content from "./content";
-import "./App.css";
-import { ThemeContext } from "./ThemeContex";
-import { useContext } from "react";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const context = useContext(ThemeContext);
   return (
     <div className="App">
-      <div style={{ padding: 20 }}>
-        <button onClick={context.toggleTheme}>Toggle Theme</button>
-        <Content />
-      </div>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
