@@ -3,9 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ruda:wght@400..900&display=swap');
 :root {
     --primary-color: rgb(254, 44, 85);
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
 }
+
+//default layout
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
