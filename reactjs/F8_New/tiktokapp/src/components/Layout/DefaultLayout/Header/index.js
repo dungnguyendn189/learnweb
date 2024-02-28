@@ -10,9 +10,8 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
-                    <img src={imgaes.logo} alt="tiktok"></img>
-                </div>
+                <img src={imgaes.logo} alt="tiktok"></img>
+
                 <div className={cx('search')}>
                     <input placeholder="Search accounts and vidoes" spellCheck={false} />
                     <button className={cx('clear')}>
