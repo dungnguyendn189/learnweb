@@ -23,6 +23,21 @@ const MENU_ICON = [
     {
         icon: <FontAwesomeIcon icon={faEarthAmericas} />,
         title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -42,6 +57,10 @@ function Header() {
             setResult([]);
         }, 0);
     }, []);
+
+    const handleMenuChange = (menuItem) => {
+        console.log(menuItem);
+    };
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -79,7 +98,7 @@ function Header() {
                 <div className={cx('action')}>
                     <Button text>Upload</Button>
                     <Button primary>Login</Button>
-                    <Menu items={MENU_ICON}>
+                    <Menu items={MENU_ICON} onChange={handleMenuChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
