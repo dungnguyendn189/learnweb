@@ -11,6 +11,8 @@ import {
     faEarthAmericas,
     faCircleQuestion,
     faKeyboard,
+    faCloudUpload,
+    faMessage,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PoperWrapper } from '~/components/Popper';
@@ -49,6 +51,8 @@ const MENU_ICON = [
         title: 'Keyboard Shortcuts',
     },
 ];
+
+const currentUser = true;
 
 function Header() {
     const [searchResult, setResult] = useState([]);
@@ -94,14 +98,37 @@ function Header() {
                         </Tippy>
                     </div>
                 </Tippy>
-
                 <div className={cx('action')}>
-                    <Button text>Upload</Button>
-                    <Button primary>Login</Button>
+                    {currentUser ? (
+                        <>
+                            <button className={cx('action-btn')}>
+                                <FontAwesomeIcon icon={faCloudUpload} />
+                            </button>
+                            <button className={cx('action-btn')}>
+                                <FontAwesomeIcon icon={faMessage} />
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <Button text>Upload</Button>
+
+                            <Button primary>Login</Button>
+                        </>
+                    )}
                     <Menu items={MENU_ICON} onChange={handleMenuChange}>
-                        <button className={cx('more-btn')}>
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
+                        {currentUser ? (
+                            <img
+                                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/499ea773799dcb1f04598b6ba4064942~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1709283600&x-signature=eTcBKiWDcvBPLrS7wm%2BTQERi3Io%3D"
+                                className={cx('user-avatar')}
+                                alt="Nguyễn Đức Dũng"
+                            />
+                        ) : (
+                            <>
+                                <button className={cx('more-btn')}>
+                                    <FontAwesomeIcon icon={faEllipsisVertical} />
+                                </button>
+                            </>
+                        )}
                     </Menu>
                 </div>
             </div>
