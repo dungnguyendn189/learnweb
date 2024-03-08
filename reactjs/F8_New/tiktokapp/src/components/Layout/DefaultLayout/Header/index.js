@@ -13,6 +13,11 @@ import {
     faKeyboard,
     faCloudUpload,
     faMessage,
+    faUser,
+    faCoins,
+    faGear,
+    faOutdent,
+    faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
@@ -55,9 +60,31 @@ const MENU_ICON = [
     },
 ];
 
-const currentUser = true;
-
 function Header() {
+    const currentUser = true;
+    const userMenu = [
+        {
+            icon: <FontAwesomeIcon icon={faUser} />,
+            title: 'View profile',
+            to: '/@tanlon',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faCoins} />,
+            title: 'Get Coin',
+            to: '/coin',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faGear} />,
+            title: 'Setting',
+            to: '/setting',
+        },
+        ...MENU_ICON,
+        {
+            icon: <FontAwesomeIcon icon={faSignOut} />,
+            title: 'Log Out',
+            to: '/feedback',
+        },
+    ];
     const [searchResult, setResult] = useState([]);
     useEffect(() => {
         setTimeout(() => {
@@ -104,7 +131,7 @@ function Header() {
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
-                            <Tippy content="Upload video" placement="bottom">
+                            <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <FontAwesomeIcon icon={faCloudUpload} />
                                 </button>
@@ -117,7 +144,7 @@ function Header() {
                             <Button primary>Login</Button>
                         </>
                     )}
-                    <Menu items={MENU_ICON} onChange={handleMenuChange}>
+                    <Menu items={currentUser ? userMenu : MENU_ICON} onChange={handleMenuChange}>
                         {currentUser ? (
                             <img
                                 src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/499ea773799dcb1f04598b6ba4064942~c5_100x100.jpeg?lk3s=a5d48078&x-expires=1709283600&x-signature=eTcBKiWDcvBPLrS7wm%2BTQERi3Io%3D"
