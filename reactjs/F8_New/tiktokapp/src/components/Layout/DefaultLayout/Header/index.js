@@ -83,6 +83,7 @@ function Header() {
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Log Out',
             to: '/feedback',
+            separet: true,
         },
     ];
     const [searchResult, setResult] = useState([]);
