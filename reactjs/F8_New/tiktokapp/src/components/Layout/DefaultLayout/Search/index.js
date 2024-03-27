@@ -1,88 +1,101 @@
 import {
-    faCircleXmark,
-    faSpinner,
-    faMagnifyingGlass,
+  faCircleXmark,
+  faMagnifyingGlass,
+  faRotateRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PoperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
-import styles from './Search.module.scss'
+import styles from './Search.module.scss';
 import { useEffect, useState, useRef } from 'react';
 
-
-const cx = classNames.bind(styles)
-
-
+const cx = classNames.bind(styles);
 
 function Search() {
+  const [searchValue, setSearchValue] = useState('');
+  const [searchResult, setSearchResult] = useState([]);
+  const [showResult, setShowResult] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-    const [searchValue, setSearchValue] = useState('');
-    const [searchResult, setResult] = useState([]);
-    const [showResult, setShowResult] = useState(true);
+  const inputRef = useRef();
 
-    const inputRef = useRef();
-
-
-
-    useEffect(() => {
-        setTimeout(() => {
-            setResult([1, 2, 3, 1]);
-        }, 0);
-    }, []);
-
-    const handleClear = () => {
-        setSearchValue('');
-        inputRef.current.focus();
-        searchResult([]);
+  useEffect(() => {
+    if (!searchValue.trim()) {
+      setSearchResult([]);
+      return;
     }
+    setLoading(true);
+    fetch(
+      `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
+        searchValue,
+      )}&type=less`,
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        setSearchResult(res.data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, [searchValue]);
 
-    const handleHideResult = () => {
-        setShowResult(false);
-    }
+  const handleClear = () => {
+    setSearchValue('');
+    inputRef.current.focus();
+    setSearchResult([]);
+  };
 
-    return (<HeadlessTippy
-        interactive
-        visible={showResult && searchResult.length > 0}
-        render={(attrs) => (
-            <div className={cx('search-result')} tabIndex="-1">
-                <PoperWrapper>
-                    <h4 className={cx('search-title')}>Accounts</h4>
-                    <AccountItem />
-                    <AccountItem />
-                    <AccountItem />
-                    <AccountItem />
-                </PoperWrapper>
-            </div>
-        )}
-        onClickOutside={handleHideResult}
-    >
-        <div className={cx('search')}>
-            <input
-                onFocus={() => setShowResult(true)}
-                ref={inputRef}
-                value={searchValue}
-                placeholder="Search accounts and vidoes"
-                spellCheck={false}
-                onChange={e => setSearchValue(e.target.value)} />
+  const handleHideResult = () => {
+    setShowResult(false);
+  };
 
-            {!!searchValue && (
-                <button className={cx('clear')}>
-                    <FontAwesomeIcon icon={faCircleXmark} onClick={handleClear
-                    } />
-                </button>)}
-
-
-            {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
-            <HeadlessTippy content="Tìm Kiếm" placement="right">
-                <button className={cx('search-btn')}>
-                    {' '}
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </button>
-            </HeadlessTippy>
+  return (
+    <HeadlessTippy
+      interactive
+      visible={showResult && searchResult.length > 0}
+      render={(attrs) => (
+        <div className={cx('search-result')} tabIndex="-1">
+          <PoperWrapper>
+            <h4 className={cx('search-title')}>Accounts</h4>
+            {searchResult.map((result) => (
+              <AccountItem key={result.id} data={result} />
+            ))}
+          </PoperWrapper>
         </div>
-    </HeadlessTippy>);
+      )}
+      onClickOutside={handleHideResult}
+    >
+      <div className={cx('search')}>
+        <input
+          onFocus={() => setShowResult(true)}
+          ref={inputRef}
+          value={searchValue}
+          placeholder="Search accounts and vidoes"
+          spellCheck={false}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+
+        {!!searchValue && !loading && (
+          <button className={cx('clear')}>
+            <FontAwesomeIcon icon={faCircleXmark} onClick={handleClear} />
+          </button>
+        )}
+
+        {loading && (
+          <FontAwesomeIcon className={cx('loading')} icon={faRotateRight} />
+        )}
+        <HeadlessTippy content="Tìm Kiếm" placement="right">
+          <button className={cx('search-btn')}>
+            {' '}
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
+        </HeadlessTippy>
+      </div>
+    </HeadlessTippy>
+  );
 }
 
 export default Search;

@@ -1,22 +1,37 @@
-import { useState, forwardRef } from "react";
-import imgaes from "~/assets/images";
+import { useState, forwardRef } from 'react';
+import imgaes from '~/assets/images';
 import styles from './Image.module.scss';
-import classNames from "classnames";
+import classNames from 'classnames';
 
-const Image = forwardRef(({ src, alt, fallback: customFallback = imgaes.noImage, className, ...props }, ref) => {
-    const [fallback, setFallback] = useState('')
+const Image = forwardRef(
+  (
+    {
+      src,
+      alt,
+      fallback: customFallback = imgaes.noImage,
+      className,
+      ...props
+    },
+    ref,
+  ) => {
+    const [fallback, setFallback] = useState('');
 
     const handleError = () => {
-        setFallback(customFallback);
-    }
+      setFallback(customFallback);
+    };
 
-    return <img
+    return (
+      <img
         className={classNames(className, styles.wrapper)}
-        {...props} r
+        {...props}
+        r
         ef={ref}
         src={fallback || src}
         alt={alt}
-        onError={handleError} />
-});
+        onError={handleError}
+      />
+    );
+  },
+);
 
 export default Image;
