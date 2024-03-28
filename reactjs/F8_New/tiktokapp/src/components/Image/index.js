@@ -24,8 +24,7 @@ const Image = forwardRef(
       <img
         className={classNames(className, styles.wrapper)}
         {...props}
-        r
-        ef={ref}
+        ref={ref}
         src={fallback || src}
         alt={alt}
         onError={handleError}
