@@ -8,55 +8,56 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [], onChange }) {
-    const [history, setHistory] = useState([{ data: items }]);
-    const current = history[history.length - 1];
+function Menu({ children, items = [], onChange, hideOnClick = false }) {
+  const [history, setHistory] = useState([{ data: items }]);
+  const current = history[history.length - 1];
 
-    const renderItems = () => {
-        return current.data.map((item, index) => {
-            const isParrent = !!item.children;
-            return (
-                <MenuItem
-                    key={index}
-                    data={item}
-                    onClick={() => {
-                        if (isParrent) {
-                            setHistory((prev) => [...prev, item.children]);
-                        } else {
-                            onChange(item);
-                        }
-                    }}
-                />
-            );
-        });
-    };
-    return (
-        <Tippy
-            interactive
-            delay={[0, 800]}
-            offset={[12, 8]}
-            placement="bottom-end"
-            render={(attrs) => (
-                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <PoperWrapper className={cx('menu-poper')}>
-                        {history.length > 1 && (
-                            <Header
-                                title="Language"
-                                onBack={() => {
-                                    setHistory((prev) => prev.slice(0, history.length - 1));
-                                }}
-                            />
-                        )}
-                        {renderItems()}
-                    </PoperWrapper>
-                </div>
+  const renderItems = () => {
+    return current.data.map((item, index) => {
+      const isParrent = !!item.children;
+      return (
+        <MenuItem
+          key={index}
+          data={item}
+          onClick={() => {
+            if (isParrent) {
+              setHistory((prev) => [...prev, item.children]);
+            } else {
+              onChange(item);
+            }
+          }}
+        />
+      );
+    });
+  };
+  return (
+    <Tippy
+      interactive
+      delay={[0, 800]}
+      offset={[12, 8]}
+      hideOnClick={hideOnClick}
+      placement="bottom-end"
+      render={(attrs) => (
+        <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+          <PoperWrapper className={cx('menu-poper')}>
+            {history.length > 1 && (
+              <Header
+                title="Language"
+                onBack={() => {
+                  setHistory((prev) => prev.slice(0, history.length - 1));
+                }}
+              />
             )}
-            onHide={() => {
-                setHistory((prev) => prev.slice(0, 1));
-            }}
-        >
-            {children}
-        </Tippy>
-    );
+            {renderItems()}
+          </PoperWrapper>
+        </div>
+      )}
+      onHide={() => {
+        setHistory((prev) => prev.slice(0, 1));
+      }}
+    >
+      {children}
+    </Tippy>
+  );
 }
 export default Menu;

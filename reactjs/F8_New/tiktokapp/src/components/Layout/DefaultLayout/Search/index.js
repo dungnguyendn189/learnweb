@@ -51,6 +51,14 @@ function Search() {
     setShowResult(false);
   };
 
+  const handleChange = (e) => {
+    const searchValue = e.target.value;
+    if (searchValue.startsWith(' ')) {
+      return;
+    }
+    setSearchValue(searchValue);
+  };
+
   return (
     <HeadlessTippy
       interactive
@@ -74,7 +82,7 @@ function Search() {
           value={searchValue}
           placeholder="Search accounts and vidoes"
           spellCheck={false}
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={handleChange}
         />
 
         {!!searchValue && !loading && (
@@ -87,7 +95,10 @@ function Search() {
           <FontAwesomeIcon className={cx('loading')} icon={faRotateRight} />
         )}
         <HeadlessTippy content="Tìm Kiếm" placement="right">
-          <button className={cx('search-btn')}>
+          <button
+            className={cx('search-btn')}
+            onMouseDown={(e) => e.preventDefault()}
+          >
             {' '}
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
