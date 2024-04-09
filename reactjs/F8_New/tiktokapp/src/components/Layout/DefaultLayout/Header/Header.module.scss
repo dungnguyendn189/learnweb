@@ -8,6 +8,11 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--white-color);
+  z-index: 10;
 }
 
 .inner {
