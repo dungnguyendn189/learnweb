@@ -11,6 +11,7 @@ function SuggestAccount({ label }) {
       <AccountItem />
       <AccountItem />
       <AccountItem />
+      <p className={cx('more-btn')}>Xem Thêm</p>
     </div>
   );
 }

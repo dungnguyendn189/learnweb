@@ -36,7 +36,8 @@ function Slidebar() {
           activeIcon={<LiveActiveIcon />}
         />
       </Menu>
-      <SuggestAccount label="Các tài khoản đang follow" />
+      <SuggestAccount label="Các tài khoản đề xuất" />
+      <SuggestAccount label="Flowwing" />
     </aside>
   );
 }

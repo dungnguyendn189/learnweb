@@ -18,7 +18,7 @@ function AccountItem() {
         <p className={cx('nickname')}>
           <strong>
             Dũng Đẹp Trai
-            <FontAwesomeIcon icon={faCircleCheck} />
+            <FontAwesomeIcon className={cx('check')} icon={faCircleCheck} />
           </strong>
         </p>
         <p className={cx('name')}>dungmap</p>
