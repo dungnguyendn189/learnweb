@@ -10,6 +10,7 @@ import {
   UserGroupActiveIcon,
   LiveActiveIcon,
 } from '~/components/icons';
+import SuggestAccount from '../SuggetAccount';
 const cx = classNames.bind(styles);
 
 function Slidebar() {
@@ -35,6 +36,7 @@ function Slidebar() {
           activeIcon={<LiveActiveIcon />}
         />
       </Menu>
+      <SuggestAccount label="Các tài khoản đang follow" />
     </aside>
   );
 }
