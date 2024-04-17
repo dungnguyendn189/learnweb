@@ -37,7 +37,7 @@ function Slidebar() {
         />
       </Menu>
       <SuggestAccount label="Các tài khoản đề xuất" />
-      <SuggestAccount label="Flowwing" />
+      {/* <SuggestAccount label="Flowwing" /> */}
     </aside>
   );
 }
