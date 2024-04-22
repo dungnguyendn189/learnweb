@@ -15,7 +15,11 @@ function AccountPreview() {
           src="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
           alt="Avatar"
         />
-        <Button primary>Flowwing</Button>
+        <div>
+          <Button className={cx('')} primary small>
+            Flowwing
+          </Button>
+        </div>
       </div>
       <div className={cx('body')}>
         <p className={cx('nickname')}>
