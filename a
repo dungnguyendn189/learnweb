@@ -1,0 +1,13 @@
+user.name=dungnguyendn189
+user.email=nguyenducdung.09t6a@gmail.com
+user.signingkey=37637F8AD4089906
+commit.gpgsign=true
+gpg.program=gpg
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/dungnguyendn189/learnweb.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
