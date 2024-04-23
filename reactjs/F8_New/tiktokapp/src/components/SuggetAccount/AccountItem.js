@@ -22,8 +22,8 @@ function AccountItem() {
     <div>
       <Tippy
         interactive
-        visible
         delay={[800, 0]}
+        offset={[-12,12]}
         render={renderPreview}
         placement="bottom"
       >

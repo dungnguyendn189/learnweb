@@ -16,7 +16,7 @@ function AccountPreview() {
           alt="Avatar"
         />
         <div>
-          <Button className={cx('')} primary small>
+          <Button className={cx('fl-btn')} primary small>
             Flowwing
           </Button>
         </div>
@@ -30,10 +30,10 @@ function AccountPreview() {
         </p>
         <p className={cx('name')}>dungmap</p>
         <p className={cx('analytics')}>
-          <strong className={cx('value')}>8.2M</strong>
-          <span className={cx('label')}>Follower</span>
-          <strong className={cx('value')}>8.2M</strong>
-          <span className={cx('label')}>Likes</span>
+          <strong className={cx('value')}>8.2M </strong>
+          <span className={cx('label')}>Follower </span>
+          <strong className={cx('value')}>8.2M </strong>
+          <span className={cx('label')}>Likes </span>
         </p>
       </div>
     </div>

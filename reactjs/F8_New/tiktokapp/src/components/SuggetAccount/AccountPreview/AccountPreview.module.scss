@@ -15,8 +15,13 @@
   border-radius: 50%;
 }
 
+.fl-btn{
+  padding: 6px 16px;
+}
+
 .body {
   margin-top: 12px;
+  color: #161823;
 }
 
 .nickname {
@@ -26,15 +31,20 @@
 .check {
   color: #20d5ec;
   margin-left: 6px;
+  font-size: 1.4rem;
 }
 .name {
   font-size: 1.4rem;
   font-weight: 300;
 }
 .analytics {
-  font-size: 1.6rem;
+  margin-top: 10px;
+  font-size: 1.8rem;
 }
-.value {
+.value ~ .value {
+  margin-left: 20px;
 }
 .label {
+  color: #161823bf;
 }
+
