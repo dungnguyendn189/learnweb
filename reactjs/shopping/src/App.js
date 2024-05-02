@@ -6,13 +6,25 @@ function App() {
   const [item, setItem] = useState([]);
 
   const handlAddSubmit = () => {
-    setItem((props) => [...props, input]);
-    setInput("");
-    console.log(item);
+    if (input.trim() !== "") {
+      setItem((props) => [
+        ...props,
+        { id: Date.now(), text: input, isEdit: false },
+      ]);
+      setInput("");
+    }
   };
 
-  const handleDeleted = (index) => {
-    setItem((props) => [...props, item.splice(index, 1)]);
+  const handleDeleted = (id) => {
+    // const newItem = [...item];
+    const newItem = item.filter((item) => item.id !== id);
+    setItem(newItem);
+  };
+
+  const handleEdit = (item) => {
+    item.isEdit = true;
+
+    console.log(item.isEdit);
   };
 
   return (
@@ -35,17 +47,22 @@ function App() {
             </button>
           </div>
         </div>
-        {item.map((value, index) => (
-          <div className="result">
+        {item.map((item, index) => (
+          <div className="result" key={item.id}>
             <div className="warp-result">
               <div className="fix">
-                <div className="name">{value}</div>
-                <button
-                  className="deleted-btn"
-                  onClick={() => handleDeleted(index)}
-                >
-                  Deleted
-                </button>
+                <div className="name">{item.text}</div>
+                <div>
+                  <button
+                    className="deleted-btn"
+                    onClick={() => handleDeleted(item.id)}
+                  >
+                    Deleted
+                  </button>
+                  <button className="deleted-btn" onClick={() => {}}>
+                    Edit
+                  </button>
+                </div>
               </div>
             </div>
           </div>
