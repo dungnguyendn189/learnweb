@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Header from "./layouts/Header";
+import HomePage from "./pages/HomePage";
+import Footer from "./layouts/Footer";
+import CreatePizzaPage from "./pages/CreatePizzaPage";
 
 function App() {
+  // const abc = 5;
+  // const nameList = ["Nine Dev", 123, "Dung Map"];
+
+  const name = "Nine Dev";
+
+  const handleName = () => {
+    setName("aaaaa");
+  };
+  const [a, setName] = useState(name);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <HomePage />
+      {/* <CreatePizzaPage /> */}
+      <Footer />
     </div>
   );
 }
