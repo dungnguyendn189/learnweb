@@ -1,6 +1,21 @@
-import LogoPizza from "../assets/pizza.png";
+import { useState } from "react";
+import CardPizza from "../sections/CardPizza";
+import { Pizza } from "../models/pizza.model";
+// import ItemPizza from "../sections/ItemPizza";
 
 const HomePage = () => {
+  const [pizzas, setPizzas] = useState<Pizza[]>([
+    { id: 1, title: "Pizza Thịt", description: "Pizza Thơm Ngon Tuyệt vời" },
+    { id: 2, title: "Pizza Xúc Xích", description: "Xúc Xích Đức" },
+  ]);
+
+  const handleRemovePizza = (id: number) => {
+    const indexPizza = pizzas.findIndex((e) => e.id === id);
+    console.log(indexPizza);
+    let newPizza = [...pizzas];
+    newPizza.splice(indexPizza, 1);
+    setPizzas(newPizza);
+  };
   return (
     <div
       style={{
@@ -9,35 +24,16 @@ const HomePage = () => {
         overflowY: "auto",
       }}
     >
-      <div className="wrapper-card-item">
-        <div className="card-items">
-          <img className="card-image-pizza" src={LogoPizza} alt="" />
-          <div style={{ height: "50%", width: "100%" }}></div>
-          <div className="card-content">
-            <div>
-              <div
-                style={{
-                  fontSize: "20px",
-                  fontWeight: 600,
-                  color: "#fff",
-                  marginTop: "10px",
-                }}
-              >
-                Pizza Thịt bầm
-              </div>
-              <div
-                style={{
-                  fontSize: "20px",
-                  fontWeight: 600,
-                  color: "#fff",
-                  marginTop: "10px",
-                }}
-              >
-                Pizza Phô Mai
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="wrapper-card-items">
+        {pizzas.map((item) => (
+          <CardPizza
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            description={item.description}
+            handleRemovePizza={handleRemovePizza}
+          />
+        ))}
       </div>
     </div>
   );
