@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardPizza from "../sections/CardPizza";
 import { Pizza } from "../models/pizza.model";
+import { count } from "console";
+import CountPizza from "../sections/CountPizza";
 // import ItemPizza from "../sections/ItemPizza";
 
 const HomePage = () => {
@@ -9,6 +11,9 @@ const HomePage = () => {
     { id: 2, title: "Pizza Xúc Xích", description: "Xúc Xích Đức" },
   ]);
 
+  const [count, setCount] = useState(0);
+  const [isCount, setIsCount] = useState(false);
+
   const handleRemovePizza = (id: number) => {
     const indexPizza = pizzas.findIndex((e) => e.id === id);
     console.log(indexPizza);
@@ -16,9 +21,10 @@ const HomePage = () => {
     newPizza.splice(indexPizza, 1);
     setPizzas(newPizza);
   };
+
   return (
     <>
-    {console.log('Render Item')}
+      {console.log("Render Item")}
       <div
         style={{
           height: "calc(100vh - 309px)",
@@ -37,6 +43,13 @@ const HomePage = () => {
             />
           ))}
         </div>
+        <br></br>
+        <button onClick={() => setIsCount(true)}>OpenCount</button>
+        <button onClick={() => setIsCount(false)}>HideCount</button>
+        <div>{count}</div>
+        {isCount && (
+          <CountPizza count={count} setCount={(count) => setCount(count)} />
+        )}
       </div>
     </>
   );
