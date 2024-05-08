@@ -17,25 +17,28 @@ const HomePage = () => {
     setPizzas(newPizza);
   };
   return (
-    <div
-      style={{
-        height: "calc(100vh - 309px)",
-        padding: "4rem 4rem",
-        overflowY: "auto",
-      }}
-    >
-      <div className="wrapper-card-items">
-        {pizzas.map((item) => (
-          <CardPizza
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            description={item.description}
-            handleRemovePizza={handleRemovePizza}
-          />
-        ))}
+    <>
+    {console.log('Render Item')}
+      <div
+        style={{
+          height: "calc(100vh - 309px)",
+          padding: "4rem 4rem",
+          overflowY: "auto",
+        }}
+      >
+        <div className="wrapper-card-items">
+          {pizzas.map((item) => (
+            <CardPizza
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              description={item.description}
+              handleRemovePizza={handleRemovePizza}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
