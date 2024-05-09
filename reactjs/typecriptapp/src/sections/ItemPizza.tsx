@@ -4,14 +4,14 @@ type Props = Pizza & {
   handleChangePerson: (data: Pizza) => void;
 };
 
-const ItemPizza = ({ title, description, handleChangePerson }: Props) => {
+const ItemPizza = ({ name, category, handleChangePerson }: Props) => {
   return (
     <div>
-      <div>{title}</div>
-      <div>{description}</div>
+      <div>{name}</div>
+      <div>{category}</div>
       <button
         onClick={() =>
-          handleChangePerson({ title: "DungDev 2023", description: "DevVuive" })
+          handleChangePerson({ name: "DungDev 2023", category: "DevVuive" })
         }
       >
         Change Person

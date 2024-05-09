@@ -5,7 +5,14 @@ type Props = Pizza & {
   handleRemovePizza: (id: number) => void;
 };
 
-const CardPizza = ({ id, title, description, handleRemovePizza }: Props) => {
+const CardPizza = ({
+  id,
+  name,
+  category,
+  handleRemovePizza,
+  topping,
+  price,
+}: Props) => {
   return (
     <div className="card-items" onClick={() => handleRemovePizza(id!)}>
       <img className="card-image-pizza" src={LogoPizza} alt="" />
@@ -20,7 +27,7 @@ const CardPizza = ({ id, title, description, handleRemovePizza }: Props) => {
               marginTop: "10px",
             }}
           >
-            {title}
+            {name}
           </div>
           <div
             style={{
@@ -30,8 +37,9 @@ const CardPizza = ({ id, title, description, handleRemovePizza }: Props) => {
               marginTop: "10px",
             }}
           >
-            {description}
+            {category}, {price}
           </div>
+          <div>{topping}</div>
         </div>
       </div>
     </div>

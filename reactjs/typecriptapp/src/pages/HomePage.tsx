@@ -1,30 +1,37 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import CardPizza from "../sections/CardPizza";
 import { Pizza } from "../models/pizza.model";
 import { count } from "console";
 import CountPizza from "../sections/CountPizza";
+import ButtonField from "../components/ButtonField";
+import TextField from "../components/TextField";
 // import ItemPizza from "../sections/ItemPizza";
 
 const HomePage = () => {
-  const [pizzas, setPizzas] = useState<Pizza[]>([
-    { id: 1, title: "Pizza Thịt", description: "Pizza Thơm Ngon Tuyệt vời" },
-    { id: 2, title: "Pizza Xúc Xích", description: "Xúc Xích Đức" },
-  ]);
+  const [pizzas, setPizzas] = useState<Pizza[]>([]);
+
+  useEffect(() => {
+    fetch(
+      "https://private-anon-2cc1f6fd1f-pizzaapp.apiary-mock.com/restaurants/restaurantId/menu?category=Pizza&orderBy=rank"
+    )
+      .then((res) => res.json())
+      .then((data) => setPizzas(data));
+  }, []);
 
   const [count, setCount] = useState(0);
   const [isCount, setIsCount] = useState(false);
 
   const handleRemovePizza = (id: number) => {
     const indexPizza = pizzas.findIndex((e) => e.id === id);
-    console.log(indexPizza);
     let newPizza = [...pizzas];
     newPizza.splice(indexPizza, 1);
     setPizzas(newPizza);
   };
-
+  const tinhTong = useMemo(() => {
+    return count + 1;
+  }, []);
   return (
     <>
-      {console.log("Render Item")}
       <div
         style={{
           height: "calc(100vh - 309px)",
@@ -37,19 +44,25 @@ const HomePage = () => {
             <CardPizza
               key={item.id}
               id={item.id}
-              title={item.title}
-              description={item.description}
+              name={item.name}
+              category={item.category}
+              price={item.price}
               handleRemovePizza={handleRemovePizza}
             />
           ))}
         </div>
-        <br></br>
-        <button onClick={() => setIsCount(true)}>OpenCount</button>
-        <button onClick={() => setIsCount(false)}>HideCount</button>
-        <div>{count}</div>
-        {isCount && (
-          <CountPizza count={count} setCount={(count) => setCount(count)} />
-        )}
+        <div
+          style={{
+            marginTop: "40px",
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+          }}
+        >
+          <ButtonField>Show More</ButtonField>
+        </div>
+        {tinhTong}
+        <button onClick={() => setCount(count + 1)}>Incre</button>
       </div>
     </>
   );

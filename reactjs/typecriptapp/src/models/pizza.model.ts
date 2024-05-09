@@ -1,5 +1,7 @@
 export type Pizza = {
   id?: number;
-  title?: String;
-  description?: String;
+  category?: String;
+  name?: String;
+  price?: String;
+  topping?: String;
 };
